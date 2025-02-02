@@ -1,19 +1,14 @@
 # Learning Scroll 📜  
-A **Bible-Based Reading Comprehension App** designed to help students enhance their reading skills through structured assessments, skill-based progression, and real-time progress tracking.
+**Learning Scroll** is a modular learning system designed for structured skill-based education across multiple subjects. Built with Spring Boot and MySQL, it features adaptive assessments, progress tracking, and dynamic question types to enhance learning experiences. Additionally, it serves as a research tool for studying learning effectiveness, cognitive load, and adaptive learning strategies in educational technology.
 
 ## Features 🚀
-- **User Authentication & Role Management**  
-  - Users: **Admin, Educator, Student**  
-  - Secure login and registration with **Spring Security**  
-
-- **Skill-Based Question Management**  
-  - Skills categorized under **Easy, Medium, Hard** difficulty levels  
-  - **Skill Instances** allow the same skill to appear under multiple difficulties  
- 
-- **Assessment & Progress Tracking**  
-  - Questions categorized by skill & difficulty  
-  - Track **correct answers, total attempts, time spent** per skill  
-  - Icons for skill completion & progress tracking  
+  - Role Management: Admin, Educator, Student 
+  - User Authentication: Secure login and registration with Spring Security
+  - Skill-based learning: Structured skills categorized under subjects
+  - Adaptive difficulty: Each skill has three difficulty levels (Easy, Medium, Hard).
+  - Real-time progress tracking: User performance is tracked per skill.
+  - Flexible question types: Multiple-choice, ordering (drag & drop), fill-in-the-blank, with future support for math equations and science simulations.
+  - Component-based architecture: Scalable and modular code organization following feature-based design.
 
 ## Tech Stack 🛠  
 - **Backend:** Spring Boot (Java)  
