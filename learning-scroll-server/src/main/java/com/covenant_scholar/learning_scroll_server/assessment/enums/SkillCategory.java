@@ -1,4 +1,4 @@
-package com.covenant_scholar.learning_scroll_server.assessment.entity;
+package com.covenant_scholar.learning_scroll_server.assessment.enums;
 
 public enum SkillCategory {
 
@@ -8,5 +8,5 @@ public enum SkillCategory {
 	CRITICAL_THINKING_AND_ANALYSIS,
 	TEXT_STRUCTURE_AND_LITERARY_ANALYSIS, 
 	SYNTHESIS_AND_APPLICATION, 
-	BIBLICAL_CONNECTIONS;
+	BIBLICAL_CONNECTIONS
 }

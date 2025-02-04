@@ -37,4 +37,8 @@ public class Question {
 	    @ManyToOne
 	    @JoinColumn(name = "skill_id")
 	    private Skill skill; // Links question to a specific skill
+	    
+	    @ManyToOne
+	    @JoinColumn(name = "passage_id")
+	    private Passage passage; // Links to the passage
 }

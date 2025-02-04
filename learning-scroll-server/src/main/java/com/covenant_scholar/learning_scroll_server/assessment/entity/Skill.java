@@ -2,6 +2,9 @@ package com.covenant_scholar.learning_scroll_server.assessment.entity;
 
 import java.util.List;
 
+import com.covenant_scholar.learning_scroll_server.assessment.enums.LearningStage;
+import com.covenant_scholar.learning_scroll_server.assessment.enums.SkillCategory;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,6 +35,9 @@ public class Skill {
     @Enumerated(EnumType.STRING)
     private SkillCategory category; // Category classification
 
+    @Enumerated(EnumType.STRING)
+    private LearningStage learningStage; // Foundational, Intermediate, Advanced, Master
+    
     @OneToMany(mappedBy = "skill", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> questions; // List of questions under this skill
 }
