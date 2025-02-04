@@ -8,5 +8,5 @@ import com.covenant_scholar.learning_scroll_server.user_management.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
-
+    boolean existsByUsername(String username); // Add this method for checking duplicate usernames
 }
