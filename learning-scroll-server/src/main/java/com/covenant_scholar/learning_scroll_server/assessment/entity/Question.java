@@ -19,26 +19,26 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Question {
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	    private String text; // The question text
+	private String text; // The question text
 
-	    @Enumerated(EnumType.STRING)
-	    private QuestionType questionType; // Defines the type of question (MCQ, Ordering, etc.)
+	@Enumerated(EnumType.STRING)
+	private QuestionType questionType; // Defines the type of question (MCQ, Ordering, etc.)
 
-	    @Enumerated(EnumType.STRING)
-	    private DifficultyLevel difficulty; // Easy, Medium, Hard
+	@Enumerated(EnumType.STRING)
+	private DifficultyLevel difficulty; // Easy, Medium, Hard
 
-	    @Column(columnDefinition = "JSON")
-	    private String metadata; // Stores additional question-specific data
+	@Column(columnDefinition = "JSON")
+	private String metadata; // Stores additional question-specific data
 
-	    @ManyToOne
-	    @JoinColumn(name = "skill_id")
-	    private Skill skill; // Links question to a specific skill
-	    
-	    @ManyToOne
-	    @JoinColumn(name = "passage_id")
-	    private Passage passage; // Links to the passage
+	@ManyToOne
+	@JoinColumn(name = "skill_id")
+	private Skill skill; // Links question to a specific skill
+
+	@ManyToOne
+	@JoinColumn(name = "passage_id")
+	private Passage passage; // Links to the passage
 }
