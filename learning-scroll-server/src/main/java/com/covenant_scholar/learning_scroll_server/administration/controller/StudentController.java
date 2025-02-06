@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/student")
+public class StudentController {
     @GetMapping("/dashboard")
-    public String adminDashboard() {
-        return "admin/dashboard"; // Thymeleaf template for admin
+    public String studentDashboard() {
+        return "student/dashboard"; // Thymeleaf template for student
     }
 }

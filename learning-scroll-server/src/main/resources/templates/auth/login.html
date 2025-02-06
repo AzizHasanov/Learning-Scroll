@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Welcome! Please Log In</h2>
+
+    <!-- Success message after registration -->
+    <div th:if="${successMessage}" style="color: green;">
+        <p th:text="${successMessage}"></p>
+    </div>
+
+    <!-- Error message for invalid login -->
+    <div th:if="${param.error}" style="color: red;">
+        <p>Invalid username or password. Please try again.</p>
+    </div>
+
+    <!-- Logout message -->
+    <div th:if="${param.logout}" style="color: blue;">
+        <p>You have been logged out successfully.</p>
+    </div>
+
+    <form th:action="@{/auth/login}" method="post">
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a th:href="@{/auth/register}">Register here</a></p>
+</body>
+</html>

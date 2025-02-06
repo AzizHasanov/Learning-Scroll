@@ -30,6 +30,10 @@ public class UserService {
 
 	}
 
+	public boolean existsByUsername(String username) {
+		return userRepository.existsByUsername(username);
+	}
+
 	@Autowired
 	public UserService(PasswordEncoder passwordEncoder) {
 		this.passwordEncoder = passwordEncoder;
