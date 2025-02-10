@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Courses | Learning Scroll</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" th:href="@{/css/courses.css}">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Available Courses</h2>
+    <ul>
+      <li th:each="course : ${courseList}">
+        <a th:href="@{/student/course/{courseId}(courseId=${course.id})}" th:text="${course.name}">Course Name</a>
+      </li>
+    </ul>
+    <form th:action="@{/logout}" method="post">
+      <button type="submit">Logout</button>
+    </form>
+  </div>
+</body>
+</html>

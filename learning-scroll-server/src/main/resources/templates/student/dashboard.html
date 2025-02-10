@@ -1,66 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Student Dashboard | Learning Scroll</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
-</head>
-<body>
-    <div class="dashboard-container">
-        <h2>Student Dashboard</h2>
-        <p>Welcome, <span th:text="${#authentication.name}"></span>!</p>
 
-        <!-- Navigation Links -->
-        <ul>
-            <li><a th:href="@{/student/courses}">View Courses</a></li>
-            <li><a th:href="@{/student/assignments}">My Assignments</a></li>
-            <li><a th:href="@{/student/grades}">My Grades</a></li>
-            <li><a th:href="@{/student/profile}">Profile</a></li>
-        </ul>
-        
-        <!-- Course Filter Section -->
-        <div class="course-filter">
-            <h3>Filter by Course</h3>
-            <ul>
-                <li><a th:href="@{/student/dashboard}">All Courses</a></li>
-                <li th:each="course : ${courseList}">
-                    <a th:href="@{/student/dashboard(courseId=${course.id})}" th:text="${course.name}">Course Name</a>
-                </li>
-            </ul>
-        </div>
-        
-        <!-- Skill Progress Section -->
-        <div class="progress-summary">
-            <h3>Your Skill Progress</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course</th>
-                        <th>Skill</th>
-                        <th>Correct Answers</th>
-                        <th>Total Attempts</th>
-                        <th>Total Time Spent (sec)</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="progress : ${skillProgressList}">
-                        <td th:text="${progress.skill.course.name}">Course Name</td>
-                        <td th:text="${progress.skill.name}">Skill Name</td>
-                        <td th:text="${progress.correctAnswers}">0</td>
-                        <td th:text="${progress.totalAttempts}">0</td>
-                        <td th:text="${progress.totalTimeSpent}">0</td>
-                        <td th:text="${progress.completed} ? 'Completed' : 'In Progress'">Status</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p th:if="${#lists.isEmpty(skillProgressList)}">No progress data available yet.</p>
-        </div>
-        
-        <!-- Logout Form -->
-        <form th:action="@{/logout}" method="post">
-            <button type="submit">Logout</button>
-        </form>
-    </div>
+<head>
+	<meta charset="UTF-8">
+	<title>Student Dashboard | Learning Scroll</title>
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+	<div class="dashboard-container">
+		<h2>Student Dashboard</h2>
+		<p>Welcome, <span th:text="${#authentication.name}"></span>!</p>
+
+		<!-- Navigation Links -->
+		<ul>
+			<li><a th:href="@{/student/courses}">View Courses</a></li>
+			<li><a th:href="@{/student/assignments}">My Assignments</a></li>
+			<li><a th:href="@{/student/grades}">My Grades</a></li>
+			<li><a th:href="@{/student/profile}">Profile</a></li>
+		</ul>
+
+	<!-- Logout Form -->
+	<form th:action="@{/logout}" method="post">
+		<button type="submit">Logout</button>
+	</form>
+	</div>
 </body>
+
 </html>

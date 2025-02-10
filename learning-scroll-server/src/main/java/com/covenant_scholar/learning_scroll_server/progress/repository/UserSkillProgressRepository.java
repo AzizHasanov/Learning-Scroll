@@ -12,5 +12,5 @@ import com.covenant_scholar.learning_scroll_server.user_management.entity.User;
 public interface UserSkillProgressRepository extends JpaRepository<UserSkillProgress, Long> {
 
     List<UserSkillProgress> findByUser(User user);
-    List<UserSkillProgress> findByUserAndSkillCourseId(User user, Long courseId);
+    List<UserSkillProgress> findByUserAndSkillCourseId(User user, Long courseId);    
 }

@@ -1,0 +1,67 @@
+/* courses.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px;
+}
+
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Left-align content within the container */
+}
+
+.dashboard-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.dashboard-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-container ul li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 10px 0;
+}
+
+.dashboard-container ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #337ab7;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-container ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+.dashboard-container form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.dashboard-container button {
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dashboard-container button:hover {
+    background-color: #286090;
+}

@@ -1,4 +1,4 @@
-package com.covenant_scholar.learning_scroll_server.administration.controller;
+package com.covenant_scholar.learning_scroll_server.assessment.controller;
 
 import java.security.Principal;
 import java.util.List;
