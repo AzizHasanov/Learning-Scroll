@@ -58,8 +58,8 @@ public class GoogleSheetsToSQL {
 
         // Insert Skill (if not exists)
         String skillSql = String.format(
-            "INSERT INTO skill (name, category, learning_stage, subject_id) " +
-            "SELECT '%s', '%s', '%s', (SELECT id FROM subject WHERE name='Reading') " +
+            "INSERT INTO skill (name, category, learning_stage, course_id) " +
+            "SELECT '%s', '%s', '%s', (SELECT id FROM course WHERE name='Reading') " +
             "WHERE NOT EXISTS (SELECT 1 FROM skill WHERE name='%s');",
             row[1], row[2], row[3], row[1]  // Ensure uniqueness based on skill name
         );

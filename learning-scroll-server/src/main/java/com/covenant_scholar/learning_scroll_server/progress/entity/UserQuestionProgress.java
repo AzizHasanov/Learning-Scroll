@@ -1,4 +1,4 @@
-package com.covenant_scholar.learning_scroll_server.progress;
+package com.covenant_scholar.learning_scroll_server.progress.entity;
 
 import com.covenant_scholar.learning_scroll_server.assessment.entity.Question;
 import com.covenant_scholar.learning_scroll_server.user_management.entity.User;

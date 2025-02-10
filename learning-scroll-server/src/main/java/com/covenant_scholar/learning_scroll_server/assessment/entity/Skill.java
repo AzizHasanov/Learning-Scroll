@@ -29,8 +29,8 @@ public class Skill {
     private String name; // Skill name (e.g., "Inference", "Context Clues")
 
     @ManyToOne
-    @JoinColumn(name = "subject_id")
-    private Subject subject; // Links skill to a subject
+    @JoinColumn(name = "course_id")
+    private Course course; // Links skill to a subject
 
     @Enumerated(EnumType.STRING)
     private SkillCategory category; // Category classification

@@ -10,10 +10,12 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Subject {
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name; // e.g., "Reading", "Math", "Science"
+    
+    private String description;
 }

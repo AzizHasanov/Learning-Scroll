@@ -1,4 +1,4 @@
-package com.covenant_scholar.learning_scroll_server.progress;
+package com.covenant_scholar.learning_scroll_server.progress.entity;
 
 import java.util.List;
 

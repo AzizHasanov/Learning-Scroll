@@ -1,6 +1,5 @@
 package com.covenant_scholar.learning_scroll_server.config;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
@@ -8,29 +7,32 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import java.io.IOException;
+import java.util.Collection;
 
 public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
-            throws IOException, ServletException {
+	@Override
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+			Authentication authentication) throws IOException {
+		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 
-        String redirectURL = "/";
+		String redirectURL = "/";
 
-        for (GrantedAuthority authority : authentication.getAuthorities()) {
-            String role = authority.getAuthority();
-            if (role.equals("ROLE_ADMIN")) {
-                redirectURL = "/admin/dashboard";
-                break;
-            } else if (role.equals("ROLE_EDUCATOR")) {
-                redirectURL = "/educator/dashboard";
-                break;
-            } else if (role.equals("ROLE_STUDENT")) {
-                redirectURL = "/student/dashboard";
-                break;
-            }
-        }
+		for (GrantedAuthority authority : authorities) {
+			String role = authority.getAuthority();
 
-        response.sendRedirect(redirectURL);
-    }
+			if (role.equals("ROLE_ADMIN")) {
+				response.sendRedirect("/admin/dashboard");
+				return;
+			} else if (role.equals("ROLE_EDUCATOR")) {
+				response.sendRedirect("/educator/dashboard");
+				return;
+			} else if (role.equals("ROLE_STUDENT")) {
+				response.sendRedirect("/student/dashboard");
+				return;
+			}
+		}
+
+		response.sendRedirect(redirectURL);
+	}
 }

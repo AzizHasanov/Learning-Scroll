@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Educator Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Educator Dashboard | Learning Scroll</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <h1>Welcome, Educator!</h1>
-    <p>This is your educator panel.</p>
-    <a href="/logout">Logout</a>
+    <div class="dashboard-container">
+        <h2>Educator Dashboard</h2>
+        <p>Welcome, <span th:text="${#authentication.name}"></span>!</p>
+        <ul>
+            <li><a th:href="@{/educator/manage-courses}">Manage Courses</a></li>
+            <li><a th:href="@{/educator/create-course}">Create New Course</a></li>
+            <li><a th:href="@{/educator/view-enrollments}">View Enrollments</a></li>
+            <li><a th:href="@{/educator/manage-assignments}">Manage Assignments</a></li>
+        </ul>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
 </body>
 </html>
