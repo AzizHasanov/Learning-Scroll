@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Title uses course and skill names, all in one expression -->
+    <title th:text="${skill.course.name + ' - ' + skill.name + ' | Summary'}">Skill Summary</title>
+    <link rel="stylesheet" th:href="@{/css/skill-summary.css}">
+</head>
+<body>
+    <div class="summary-container">
+        <!-- The skill name in quotes, with the entire expression in one ${…} -->
+        <h2 th:text="${'\"' + skill.name + '\" Summary'}">"Skill Name" Summary</h2>
+        <div class="summary-stats">
+            <p>Questions Answered: <span th:text="${answeredQuestions}">0</span></p>
+            <p>Correct Answers: <span th:text="${correctAnswers}">0</span></p>
+            <p>Total Questions in this Skill: <span th:text="${totalSkillQuestions}">0</span></p>
+            <p>Incorrect Answers: <span th:text="${answeredQuestions - correctAnswers}">0</span></p>
+            <p>Total Time Spent: <span th:text="${totalTimeSpent}">0</span> seconds</p>
+            <p><strong>SmartScore</strong> out of 100: <span th:text="${smartScore}">0</span></p>
+        </div>
+        <div class="summary-message">
+            <p>Great job on completing this skill! May your learning guide you on the path of wisdom.</p>
+        </div>
+        <div class="navigation">
+            <button type="button" onclick="location.href='[[ @{/student/course/{courseId}(courseId=${skill.course.id})} ]]'">Back to Skills</button>
+            <button type="button" onclick="location.href='[[ @{/student/courses} ]]'">Back to Courses</button>
+        </div>
+    </div>
+</body>
+</html>

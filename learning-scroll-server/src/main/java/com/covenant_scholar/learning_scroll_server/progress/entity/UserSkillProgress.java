@@ -37,6 +37,8 @@ public class UserSkillProgress {
 	private int totalAttempts;
 	private int totalTimeSpent;
 	private boolean completed;
+	
+	private Integer smartScore;  //  update based on mastery algorithm.
 
 	@OneToMany(mappedBy = "userSkillProgress", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<UserQuestionProgress> questionProgressList;

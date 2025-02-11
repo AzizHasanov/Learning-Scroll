@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <!-- Title now shows "Course name - Skill name | Assessment" using skill.course.name -->
+  <title th:text="${skill.course.name} + ' - ' + ${skill.name} + ' | Assessment'">Assessment</title>
+  <link rel="stylesheet" th:href="@{/css/assessment.css}">
+</head>
+<body>
+  <div class="assessment-container">
+    <!-- Wrap left and right sections in a flex container -->
+    <div class="assessment-content">
+      <!-- Left Section: Question & Passage Info -->
+      <div class="left-section">
+        <!-- Passage Information (if available) -->
+        <div class="passage-info" th:if="${question.passage != null}">
+          <h3 class="passage-title" th:text="${question.passage.title}">Passage Title</h3>
+          <!-- Passage text in justified alignment -->
+          <div class="passage-text" th:text="${question.passage.text}">Passage text goes here...</div>
+          <div class="passage-address" th:text="${question.passage.address}">Passage Address</div>
+        </div>
+        <!-- Question Information -->
+        <div class="question-info">
+          <h2 class="question-text" th:text="${question.text}">Question text here...</h2>
+          <!-- MCQ Options -->
+          <div class="options">
+            <form th:action="@{/student/assessment/submit}" method="post">
+              <div class="option" th:each="entry : ${optionEntries}">
+                <input type="radio" id="option_[[${entry.key}]]" name="selectedOption" th:value="${entry.key}" required>
+                <label th:for="|option_${entry.key}|" th:text="${entry.key + ') ' + entry.value}"></label>
+              </div>
+              <!-- Hidden fields to pass along necessary IDs and question index -->
+              <input type="hidden" name="questionId" th:value="${question.id}">
+              <input type="hidden" name="skillId" th:value="${skill.id}">
+              <input type="hidden" name="questionIndex" th:value="${questionIndex}">
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Right Section: Progress Statistics -->
+      <div class="right-section">
+        <div class="progress-panel">
+          <h4>Questions Answered</h4>
+          <div class="progress-value" th:text="${questionsAnswered}">0</div>
+          <h4>Time Elapsed</h4>
+          <div class="progress-value" th:text="${timeElapsed}">0 sec</div>
+          <h4><strong>SmartScore</strong> out of 100</h4>
+          <div class="progress-value" th:text="${smartScore}">0</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation Buttons at the Bottom -->
+    <div class="navigation">
+      <button type="button" onclick="location.href='[[ @{/student/course/{courseId}(courseId=${skill.course.id})} ]]'">Back to Skills</button>
+    </div>
+  </div>
+</body>
+</html>

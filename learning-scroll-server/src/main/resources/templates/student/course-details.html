@@ -25,7 +25,10 @@
         <tbody>
           <tr th:each="skill, iterStat : ${skillList}">
             <td th:text="${iterStat.index + 1}">1</td>
-            <td th:text="${skill.name}">Skill Name</td>
+            <td>
+              <!-- Skill name rendered as a link to the assessment page -->
+              <a th:href="@{/student/assessment/{skillId}(skillId=${skill.id})}" th:text="${skill.name}">Skill Name</a>
+            </td>
             <td th:text="${skill.category}">Category</td>
             <td th:text="${skill.learningStage}">Learning Stage</td>
           </tr>
@@ -62,7 +65,7 @@
     
     <!-- Navigation -->
     <div class="navigation">
-      <a th:href="@{/student/courses}">Back to Courses</a>
+      <button type="button" onclick="location.href='[[ @{/student/courses} ]]'">Back to Courses</button>
       <form th:action="@{/logout}" method="post" style="display:inline;">
         <button type="submit">Logout</button>
       </form>

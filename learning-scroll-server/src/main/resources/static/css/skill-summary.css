@@ -1,0 +1,54 @@
+/* skill-summary.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.summary-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.summary-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.summary-stats p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+}
+
+.summary-stats span {
+    font-weight: bold;
+    color: #000;
+}
+
+.summary-message p {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #337ab7;
+}
+
+.navigation a {
+    text-decoration: none;
+    background-color: #337ab7;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.navigation a:hover {
+    background-color: #286090;
+}

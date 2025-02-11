@@ -1,6 +1,7 @@
 package com.covenant_scholar.learning_scroll_server.progress.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,4 +14,5 @@ public interface UserSkillProgressRepository extends JpaRepository<UserSkillProg
 
     List<UserSkillProgress> findByUser(User user);
     List<UserSkillProgress> findByUserAndSkillCourseId(User user, Long courseId);    
+    Optional<UserSkillProgress> findByUserAndSkillId(User user, Long skillId);
 }

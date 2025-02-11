@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback | Learning Scroll</title>
+    <link rel="stylesheet" th:href="@{/css/feedback.css}">
+</head>
+<body>
+    <div class="feedback-container">
+        <!-- The feedback message appears centered -->
+        <div class="feedback-message" th:text="${feedbackMessage}">Feedback message here</div>
+        <!-- "Next" button that sends the user to the next assessment question for this skill -->
+        <form th:action="@{/student/assessment/{skillId}(skillId=${skillId})}" method="get">
+            <input type="hidden" name="questionIndex" th:value="${questionIndex + 1}">
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+</html>
